@@ -37,6 +37,12 @@ const Navbar = () => {
                 CONTACT
               </Link>
             </li>
+            <li className='nav-item'>
+            
+              <Link className='nav-link' to='/signin'>  
+                SIGN IN
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

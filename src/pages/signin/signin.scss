@@ -1,0 +1,61 @@
+.background {
+    background-color: lightgrey !important;
+}
+
+.signInSection {
+    display: flex;
+}
+.signInBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 50%; 
+    border: 2px solid #eeeeee;
+    border-radius: 3px;
+    padding: 3rem 0 3rem 0;
+    margin: 0 auto; 
+}
+.formWrapper {
+    display: flex; 
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    align-items: stretch;
+}
+.inputWrapper {
+    display: inline-block;
+    position: relative;
+    
+
+}
+
+.centerWrapper {
+    margin-bottom: 1rem;
+    margin-left: 10%;
+    width: 80%; 
+}
+
+.inputBox {
+    box-sizing: border-box;
+    color: #546e7a;
+    border: 1px solid #cfd8dc;
+    border-radius: 3px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+    transition: 0.4s all;
+    padding: 1rem;
+}
+
+.signInButton {
+    color: white;
+    background-color: #455a64;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #b0bec5;
+    border-radius: 3px;
+}
+.signInButton:hover {
+    background-color: #546e7a;
+}
