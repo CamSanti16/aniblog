@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebookF } from 'react-icons/fa';
+import { AiFillGithub } from 'react-icons/ai';
 import './signin.scss'
 
 const SignIn = () => {
@@ -12,7 +15,6 @@ const SignIn = () => {
   return <div className='background'>
     <div className='signInSection'> 
         <div className='signInBox'>
-                SignIn
                 <div className="formWrapper">
                     <span className="inputWrapper">
                         <input value={email} onChange={(event) => setEmail(event.target.value)} type="text" className="centerWrapper inputBox" placeholder='Username or E-mail'>
@@ -38,11 +40,12 @@ const SignIn = () => {
                         </span>
                     </span>
                     <span>
-                        or you can sign in with 
+                        or you can sign in with  dwin
                     </span>
                     <span>
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <i class="fa-brands fa-google"></i>
+                    <FcGoogle />
+                    <FaFacebookF />
+                    <AiFillGithub />
 
                     </span>
                 </div>
