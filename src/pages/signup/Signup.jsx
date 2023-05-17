@@ -11,13 +11,21 @@ const SignUp = () => {
     const [comfirmedPassword, setComfirmedPassword] = useState("");
 
     const firebaseSignUp = (e) => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log(userCredential);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        if (password == comfirmedPassword) {
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log(userCredential);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        } else {
+            return (
+                <div>
+                    Hello There
+                </div> // TODO: Need to do a popup here 
+            )
+        }
     }
 
     return <div className='background'>

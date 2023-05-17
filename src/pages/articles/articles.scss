@@ -1,0 +1,27 @@
+/* container */
+.three-columns-grid {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 2fr 3fr 2fr;
+}
+
+/* columns */
+.three-columns-grid > * {
+    padding:1rem;
+}
+
+.newsSection {
+    display: flex;
+}
+
+.newsBox {
+    position: relative;
+    left: 50%;
+
+    border: 2px solid #eeeeee;
+    border-radius: 3px;
+}
+
+.newsTitle {
+ font-weight: bold;   
+}

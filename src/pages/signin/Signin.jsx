@@ -64,23 +64,26 @@ const SignIn = () => {
 
     const githubProvider = new GithubAuthProvider();
     const signInWithGitHub = async () => {
-        try {
-            const res = await signInWithPopup(auth, githubProvider);
-            const user = res.user;
-            const q = query(collection(db, "users"), where("uid", "==", user.uid));
-            const docs = await getDocs(q);
-            if (docs.docs.length === 0) {
-              await addDoc(collection(db, "users"), {
-                uid: user.uid,
-                name: user.displayName,
-                authProvider: "github",
-                email: user.email,
-              });
-            }
-          } catch (err) {
-            console.error(err);
-            alert(err.message);
-          }
+      signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+    
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GithubAuthProvider.credentialFromError(error);
+        // ...
+      });
     }
 
 
@@ -114,14 +117,17 @@ const SignIn = () => {
                             Sign Up
                         </a>
                     </span>
-                    <span className="alignCenter" style={{color: 'rgba(0, 0, 0, 0.65)'}}>
-                        or you can sign in with
+                    <span className="alignCenter altSignIn">
+                        Or you can sign in with
                     </span>
                     <span className="alignCenter">
                     <FcGoogle onClick={signInWithGoogle} className="icon G"/>
                     <FaFacebookF onClick={signInWithFacebook} style={{color:'#4267B2'}} className="icon FB"/>
                     <AiFillGithub onClick={signInWithGitHub} style={{color:'#171515'}} className="icon GH"/>
 
+                    </span>
+                    <span className='alignCenter altSignIn centerWrapper'>
+                    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
                     </span>
                 </div>
         </div>
