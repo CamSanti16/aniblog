@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
+import {signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase"
 import './signin.scss'
 
 const SignIn = () => {
@@ -10,8 +12,36 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
 
     const firebaseSignIn = (e) => {
-        console.log("this is the email " + email)
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log(userCredential);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
+    const googleProvider = new GoogleAuthProvider();
+    const signInWithGoogle = async () => {
+        try {
+            const res = await signInWithPopup(auth, googleProvider);
+            const user = res.user;
+            const q = query(collection(db, "users"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
+              await addDoc(collection(db, "users"), {
+                uid: user.uid,
+                name: user.displayName,
+                authProvider: "google",
+                email: user.email,
+              });
+            }
+          } catch (err) {
+            console.error(err);
+            alert(err.message);
+          }
+    }
+
+
   return <div className='background'>
     <div className='signInSection'> 
         <div className='signInBox'>
@@ -46,7 +76,7 @@ const SignIn = () => {
                         or you can sign in with
                     </span>
                     <span className="alignCenter">
-                    <FcGoogle className="icon"/>
+                    <FcGoogle onClick={signInWithGoogle} className="icon"/>
                     <FaFacebookF className="icon"/>
                     <AiFillGithub className="icon"/>
 
