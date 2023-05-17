@@ -98,8 +98,6 @@
     background-color: transparent;
     outline: none;
     font-size: 12px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .linkFormat:hover {
@@ -110,3 +108,7 @@
 .linkFormat:visited { text-decoration: none; }
 
 .linkFormat:active { text-decoration: none; }
+
+.signInLink {
+    color: lightgrey !important;
+}

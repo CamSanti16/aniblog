@@ -54,7 +54,8 @@ const SignUp = () => {
                     </span>
                     <span className="centerWrapper alignCenter">
                         <span className="forgotPassword">
-                            <a className="linkFormat" href='/signin'> <p style={{color: 'lightgrey !important'}}> Have an Account? </p> Sign In </a> 
+                            <a className="linkFormat signInLink" href='/signin'>  Have an Account? </a> 
+                            <a className="linkFormat" href='/signin'> Sign In </a> 
                         </span>
                     </span>
                 </div>
