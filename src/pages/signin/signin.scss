@@ -34,7 +34,11 @@
 .centerWrapper {
     margin-bottom: 1rem;
     margin-left: 10%;
-    width: 80%; 
+    width: 80%;
+}
+
+.alignCenter {
+    text-align: center;
 }
 
 .inputBox {
@@ -58,4 +62,16 @@
 }
 .signInButton:hover {
     background-color: #546e7a;
+}
+.signUp {
+    float: right; 
+}
+
+.icon {
+    font-size: 30px;
+    margin: 0 3% 0 3%; 
+}
+
+.forgotPassword:hover {
+    color: lightgrey
 }

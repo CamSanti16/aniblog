@@ -32,20 +32,20 @@ const SignIn = () => {
                         </button>
                     </span>
                     <span className="centerWrapper">
-                        <span>
-                            Forgot Password?
+                        <span className="forgotPassword">
+                            <a> Forgot Password </a> 
                         </span>
-                        <span>
+                        <span className="signUp d-flex justify-content-end">
                             Sign Up 
                         </span>
                     </span>
-                    <span>
-                        or you can sign in with  dwin
+                    <span className="alignCenter">
+                        or you can sign in with
                     </span>
-                    <span>
-                    <FcGoogle />
-                    <FaFacebookF />
-                    <AiFillGithub />
+                    <span className="alignCenter">
+                    <FcGoogle className="icon"/>
+                    <FaFacebookF className="icon"/>
+                    <AiFillGithub className="icon"/>
 
                     </span>
                 </div>
