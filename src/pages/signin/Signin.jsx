@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
-import {signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase"
 import './signin.scss'
 
@@ -41,6 +41,48 @@ const SignIn = () => {
           }
     }
 
+    const facebookProvider = new FacebookAuthProvider();
+    const signInWithFacebook = async () => {
+        try {
+            const res = await signInWithPopup(auth, facebookProvider);
+            const user = res.user;
+            const q = query(collection(db, "users"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
+              await addDoc(collection(db, "users"), {
+                uid: user.uid,
+                name: user.displayName,
+                authProvider: "facebook",
+                email: user.email,
+              });
+            }
+          } catch (err) {
+            console.error(err);
+            alert(err.message);
+          }
+    }
+
+    const githubProvider = new GithubAuthProvider();
+    const signInWithGitHub = async () => {
+        try {
+            const res = await signInWithPopup(auth, githubProvider);
+            const user = res.user;
+            const q = query(collection(db, "users"), where("uid", "==", user.uid));
+            const docs = await getDocs(q);
+            if (docs.docs.length === 0) {
+              await addDoc(collection(db, "users"), {
+                uid: user.uid,
+                name: user.displayName,
+                authProvider: "github",
+                email: user.email,
+              });
+            }
+          } catch (err) {
+            console.error(err);
+            alert(err.message);
+          }
+    }
+
 
   return <div className='background'>
     <div className='signInSection'> 
@@ -55,7 +97,7 @@ const SignIn = () => {
                         </input>
                     </span>
                     <span className="inputWrapper">
-                        <input value={password} onChange={(event) => setPassword(event.target.value)} type="text" className="centerWrapper inputBox" placeholder='Password'>
+                        <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" className="centerWrapper inputBox" placeholder='Password'>
 
                         </input>
                     </span>
@@ -66,19 +108,19 @@ const SignIn = () => {
                     </span>
                     <span className="centerWrapper">
                         <span className="forgotPassword">
-                            <a> Forgot Password </a> 
+                            <a href='/signup'> Forgot Password </a> 
                         </span>
                         <span className="signUp d-flex justify-content-end">
-                            Sign Up 
+                            Sign Up
                         </span>
                     </span>
                     <span className="alignCenter">
                         or you can sign in with
                     </span>
                     <span className="alignCenter">
-                    <FcGoogle onClick={signInWithGoogle} className="icon"/>
-                    <FaFacebookF className="icon"/>
-                    <AiFillGithub className="icon"/>
+                    <FcGoogle onClick={signInWithGoogle} className="icon G"/>
+                    <FaFacebookF onClick={signInWithFacebook} style={{color:'#4267B2'}} className="icon FB"/>
+                    <AiFillGithub onClick={signInWithGitHub} style={{color:'#171515'}} className="icon GH"/>
 
                     </span>
                 </div>
