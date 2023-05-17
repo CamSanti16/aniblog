@@ -108,13 +108,13 @@ const SignIn = () => {
                     </span>
                     <span className="centerWrapper">
                         <span className="forgotPassword">
-                            <a href='/signup'> Forgot Password </a> 
+                            <a href='' className="linkFormat"> Forgot Password? </a> 
                         </span>
-                        <span className="signUp d-flex justify-content-end">
+                        <a href='/signup' className="signUp d-flex justify-content-end linkFormat">
                             Sign Up
-                        </span>
+                        </a>
                     </span>
-                    <span className="alignCenter">
+                    <span className="alignCenter" style={{color: 'rgba(0, 0, 0, 0.65)'}}>
                         or you can sign in with
                     </span>
                     <span className="alignCenter">

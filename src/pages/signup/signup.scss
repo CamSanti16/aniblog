@@ -11,7 +11,7 @@
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    width: 50%; 
+    width: 30%; 
     border: 2px solid #eeeeee;
     border-radius: 3px;
     padding: 3rem 0 3rem 0;
@@ -50,7 +50,8 @@
     font-weight: 300;
     text-overflow: ellipsis;
     transition: 0.4s all;
-    padding: 1rem;
+    padding: 0.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .signInButton {
@@ -60,6 +61,7 @@
     font-size: 14px;
     border: 1px solid #b0bec5;
     border-radius: 3px;
+    padding: 0.5rem;
 }
 .signInButton:hover {
     background-color: #546e7a;

@@ -11,7 +11,7 @@
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    width: 50%; 
+    width: 30%; 
     border: 2px solid #eeeeee;
     border-radius: 3px;
     padding: 3rem 0 3rem 0;
@@ -91,3 +91,22 @@
     display: flex;
     justify-content: center;
 }
+
+.linkFormat {
+    color: #546e7a;
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.linkFormat:hover {
+    color: #4c6672;
+}
+.linkFormat:link { text-decoration: none; }
+
+.linkFormat:visited { text-decoration: none; }
+
+.linkFormat:active { text-decoration: none; }

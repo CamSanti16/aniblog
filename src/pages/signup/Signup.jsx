@@ -5,6 +5,7 @@ import './signup.scss'
 
 const SignUp = () => {
 
+    const [username, setUsername] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [comfirmedPassword, setComfirmedPassword] = useState("");
@@ -27,7 +28,7 @@ const SignUp = () => {
             </span>
                 <div className="formWrapper">
                     <span className="inputWrapper">
-                        <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} className="centerWrapper inputBox" placeholder='Username'>
+                        <input type="text" onChange={(event) => setUsername(event.target.value)} className="centerWrapper inputBox" placeholder='Username'>
 
                         </input>
                     </span>
@@ -42,7 +43,7 @@ const SignUp = () => {
                         </input>
                     </span>
                     <span className="inputWrapper">
-                        <input type="password" className="centerWrapper inputBox" placeholder='E-mail Address'>
+                        <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} className="centerWrapper inputBox" placeholder='E-mail Address'>
 
                         </input>
                     </span>
@@ -51,9 +52,9 @@ const SignUp = () => {
                             Sign Up
                         </button>
                     </span>
-                    <span className="centerWrapper">
+                    <span className="centerWrapper alignCenter">
                         <span className="forgotPassword">
-                            <a href='/signin'> Have an Account? Sign In</a> 
+                            <a className="linkFormat" href='/signin'> <p style={{color: 'lightgrey !important'}}> Have an Account? </p> Sign In </a> 
                         </span>
                     </span>
                 </div>
