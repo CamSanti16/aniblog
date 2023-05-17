@@ -15,6 +15,9 @@ const SignIn = () => {
   return <div className='background'>
     <div className='signInSection'> 
         <div className='signInBox'>
+            <span className="logoCenter">
+                <img className='logo' src='AniBlogLogo.svg' alt='AniBlog Logo' />
+            </span>
                 <div className="formWrapper">
                     <span className="inputWrapper">
                         <input value={email} onChange={(event) => setEmail(event.target.value)} type="text" className="centerWrapper inputBox" placeholder='Username or E-mail'>
