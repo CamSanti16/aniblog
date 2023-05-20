@@ -1,8 +1,10 @@
-import React from 'react'
-import { IoIosArrowDown } from "react-icons/io"
+import React, { useState } from 'react'
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 import './articles.scss'
 
 const Articles = () => {
+  const [showMore, setShowMore] = useState(false)
+
   return <div>
     <div class="three-columns-grid">
     <div>1</div>
@@ -25,7 +27,7 @@ const Articles = () => {
               </div>
               <div>
                 <p>
-                  <a className="btn btn-primary showMoreBtn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <a className="btn btn-primary showMoreBtn" onClick={() => setShowMore(!showMore)} style={showMore ? {display : 'none'} : { }} data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Show More <IoIosArrowDown /> 
                   </a>
                 </p>
@@ -39,6 +41,11 @@ const Articles = () => {
                     <hr/>
                   </div>
                 </div>
+                <p>
+                  <a className="btn btn-primary showMoreBtn" onClick={() => setShowMore(!showMore)} style={showMore ? {} : {display : 'none'}} data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Show Less <IoIosArrowUp /> 
+                  </a>
+                </p>
               </div>
             </ul>
             
