@@ -12,16 +12,24 @@
 
 .newsSection {
     display: flex;
+    justify-content: center;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 .newsBox {
-    position: relative;
-    left: 50%;
-
+    width: 80%;
     border: 2px solid #eeeeee;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .newsTitle {
  font-weight: bold;   
+}
+
+.listItem:hover {
+    background-color: lightgrey;
+}
+
+.showMoreBtn {
+    background-color: lightgrey !important;
 }
